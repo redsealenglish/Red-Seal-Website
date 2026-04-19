@@ -860,10 +860,10 @@
 }
 
 .testimonial-flag {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 28px;
+  height: auto;
+  border-radius: 4px; /* or remove completely */
+  object-fit: contain;
   display: block;
 }
 
