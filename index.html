@@ -2103,7 +2103,44 @@ focused practice, and a learning experience designed to feel realistic from the 
       </div>
     </footer>
 
-    <script>
+<div id="successPopup" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+">
+  <div style="
+    background: white;
+    padding: 40px 32px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  ">
+    <img src="/logo.png" style="width: 80px; margin-bottom: 18px;" />
+
+    <p style="font-size: 18px; margin-bottom: 24px;">
+      Thank you, we’ll be in touch soon.
+    </p>
+
+    <button onclick="closePopup()" style="
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      background: #d7262f;
+      color: white;
+      cursor: pointer;
+    ">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
       const menu = document.getElementById('fullscreenMenu');
       const openBtn = document.getElementById('menuOpen');
       const closeBtn = document.getElementById('menuClose');
@@ -2189,44 +2226,12 @@ if (form) {
 function closePopup() {
   popup.style.display = 'none';
 }
+
+
+
       
     </script>
-<div id="successPopup" style="
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-">
-  <div style="
-    background: white;
-    padding: 40px 32px;
-    border-radius: 24px;
-    text-align: center;
-    max-width: 360px;
-    width: 90%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-  ">
-    <img src="/logo.png" alt="Red Seal English" style="width: 80px; margin-bottom: 18px;" />
 
-    <p style="font-size: 18px; margin-bottom: 24px;">
-      Thank you, we’ll be in touch soon.
-    </p>
-
-    <button onclick="closePopup()" style="
-      padding: 12px 20px;
-      border-radius: 999px;
-      border: none;
-      background: #d7262f;
-      color: white;
-      cursor: pointer;
-    ">
-      Close
-    </button>
-  </div>
-</div>
     
   </body>
 </html>
