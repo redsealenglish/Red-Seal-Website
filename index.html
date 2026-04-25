@@ -734,9 +734,6 @@
         display: grid;
         gap: 18px;
       }
-        display: grid;
-        gap: 18px;
-      }
 
       .programs-grid {
         grid-template-columns: 0.74fr 1.26fr;
@@ -1398,6 +1395,34 @@
   border: 1px solid rgba(0,0,0,0.05);
 }
 
+      #successPopup {
+  animation: fadeIn 0.3s ease;
+}
+
+#successPopup > div {
+  animation: popupScale 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -2034,8 +2059,7 @@ focused practice, and a learning experience designed to feel realistic from the 
     <span class="submit-copy">Response within 1 business day</span>
   </div>
         
-<input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-        
+       
 </form>
     
     </div>
@@ -2141,6 +2165,75 @@ focused practice, and a learning experience designed to feel realistic from the 
         dot.addEventListener('click', () => updateTestimonials(i));
       });
       updateTestimonials(0);
+
+const form = document.querySelector('#contact form');
+const popup = document.getElementById('successPopup');
+
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data
+    })
+.then(response => {
+  if (response.ok) {
+    popup.style.display = 'flex';
+    form.reset();
+  } else {
+    alert('Submission failed. Please try again.');
+  }
+})
+    .catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
+  });
+}
+
+function closePopup() {
+  popup.style.display = 'none';
+}
+      
     </script>
+<div id="successPopup" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+">
+  <div style="
+    background: white;
+    padding: 40px 32px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  ">
+    <img src="/logo.png" alt="Red Seal English" style="width: 80px; margin-bottom: 18px;" />
+
+    <p style="font-size: 18px; margin-bottom: 24px;">
+      Thank you, we’ll be in touch soon.
+    </p>
+
+    <button onclick="closePopup()" style="
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      background: #d7262f;
+      color: white;
+      cursor: pointer;
+    ">
+      Close
+    </button>
+  </div>
+</div>
+    
   </body>
 </html>
