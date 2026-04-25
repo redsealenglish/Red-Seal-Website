@@ -2009,27 +2009,35 @@ focused practice, and a learning experience designed to feel realistic from the 
     </div>
 
     <div class="contact-card">
-      <form>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" />
-        </div>
+      <form action="https://formsubmit.co/hello@redsealenglish.com" method="POST">
+  <input type="hidden" name="_subject" value="New Red Seal English inquiry" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@email.com" />
-        </div>
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="Your name" required />
+  </div>
 
-        <div class="field">
-          <label for="goal">Goal</label>
-          <textarea id="goal" name="goal" placeholder="Tell us what kind of English you want to build."></textarea>
-        </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="you@email.com" required />
+  </div>
 
-        <div class="submit-row">
-          <button class="button" type="submit">Send inquiry <span class="arrow">↗</span></button>
-          <span class="submit-copy">Response within 1 business day</span>
-        </div>
-      </form>
+  <div class="field">
+    <label for="goal">Goal</label>
+    <textarea id="goal" name="goal" placeholder="Tell us what kind of English you want to build." required></textarea>
+  </div>
+
+  <div class="submit-row">
+    <button class="button" type="submit">Send inquiry <span class="arrow">↗</span></button>
+    <span class="submit-copy">Response within 1 business day</span>
+  </div>
+        
+<input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+        
+</form>
+    
     </div>
   </div>
 </section>
