@@ -1423,7 +1423,17 @@
   }
 }
 
+      .iti {
+  width: 100%;
+}
+
+.iti input {
+  width: 100%;
+}
+
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
   </head>
   <body>
     <div class="fullscreen-menu" id="fullscreenMenu" aria-hidden="true">
@@ -2049,6 +2059,13 @@ focused practice, and a learning experience designed to feel realistic from the 
     <input id="email" name="email" type="email" placeholder="you@email.com" required />
   </div>
 
+        <div class="field">
+  <label for="phone">Phone / WhatsApp</label>
+  <input id="phone" name="phone" type="tel" placeholder="Your phone number" />
+</div>
+
+<input type="hidden" id="fullPhone" name="full_phone" />
+
   <div class="field">
     <label for="goal">Goal</label>
     <textarea id="goal" name="goal" placeholder="Tell us what kind of English you want to build." required></textarea>
@@ -2202,6 +2219,25 @@ focused practice, and a learning experience designed to feel realistic from the 
       });
       updateTestimonials(0);
 
+const phoneInput = document.querySelector("#phone");
+const fullPhoneInput = document.querySelector("#fullPhone");
+
+let iti;
+
+if (phoneInput && window.intlTelInput) {
+  iti = window.intlTelInput(phoneInput, {
+    initialCountry: "auto",
+    nationalMode: false,
+    geoIpLookup: function(callback) {
+      fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => callback(data.country_code))
+        .catch(() => callback("ca"));
+    },
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
+  });
+}
+  
 const form = document.querySelector('#contact form');
 const popup = document.getElementById('successPopup');
 
@@ -2210,6 +2246,11 @@ if (form) {
     e.preventDefault();
 
     const data = new FormData(form);
+
+    if (iti && fullPhoneInput) {
+  fullPhoneInput.value = iti.getNumber();
+  data.set("full_phone", iti.getNumber());
+}
 
     fetch(form.action, {
       method: 'POST',
