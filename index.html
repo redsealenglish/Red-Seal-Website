@@ -1510,10 +1510,6 @@ background:
   padding-right: 20px;
 }
       
-.testimonial-title-controls {
-  display: flex;
-  gap: 12px;
-}
 
 .testimonial-title-controls .testimonial-btn {
   background: var(--seal-red);
@@ -1525,6 +1521,22 @@ background:
       .testimonial-title-controls .testimonial-btn:hover {
   background: var(--seal-deep);
   transform: translateY(-2px);
+}
+
+      .title-row {
+  position: relative;
+}
+
+.testimonial-title-controls {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  gap: 12px;
+}
+
+      .title-row {
+  padding-right: 140px;
 }
 
     </style>
@@ -1889,18 +1901,17 @@ focused practice, and a learning experience designed to feel realistic from the 
   <div class="container split">
     <div>
       <p class="eyebrow">Testimonials and feedback</p>
-  <div class="title-row">
+ <div class="title-row">
   <h2 class="section-title">
-    <span class="title-top">
-      What
- <span class="testimonial-title-controls">
-  <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">←</button>
-  <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">→</button>
-</span>
-    </span>
-    <br />
-    students feel as they grow.
+    What<br />
+    students feel<br />
+    as they grow.
   </h2>
+
+  <div class="testimonial-title-controls">
+    <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">←</button>
+    <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">→</button>
+  </div>
 </div>
       <p class="section-copy" style="margin-top: 24px; max-width: 520px;">These testimonials reflect the kind of confidence, clarity, and real progress students experience at Red Seal English.</p>
     </div>
