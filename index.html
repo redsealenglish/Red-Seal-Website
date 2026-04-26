@@ -1499,6 +1499,33 @@ background:
   width: 100%;
 }
 
+      .title-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.testimonial-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.testimonial-controls button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.testimonial-controls button:hover {
+  background: #8e0d16;
+}
+
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -1861,7 +1888,19 @@ focused practice, and a learning experience designed to feel realistic from the 
   <div class="container split">
     <div>
       <p class="eyebrow">Testimonials and feedback</p>
-      <h2 class="section-title">What students feel as they grow.</h2>
+  <div class="title-row">
+  <h2 class="section-title">
+    <span class="title-top">
+      What
+      <span class="testimonial-controls">
+        <button class="prev">←</button>
+        <button class="next">→</button>
+      </span>
+    </span>
+    <br />
+    students feel as they grow.
+  </h2>
+</div>
       <p class="section-copy" style="margin-top: 24px; max-width: 520px;">These testimonials reflect the kind of confidence, clarity, and real progress students experience at Red Seal English.</p>
     </div>
 
