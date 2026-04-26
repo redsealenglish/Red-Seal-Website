@@ -329,13 +329,11 @@ background:
       }
 
 .menu-panel {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
+  width: min(100%, 1100px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
 }
 .menu-nav a {
   display: block;
@@ -884,8 +882,8 @@ background:
 
 .menu-logo {
   display: block;
-  width: 60%;
-  max-width: 520px;
+  width: 85%;
+  max-width: 760px;
   height: auto;
   margin: 0 auto 40px;
   opacity: 0.95;
