@@ -971,7 +971,8 @@ background:
         color: rgba(17,17,17,0.85);
       }
 
-   .testimonial-controls {
+   
+.testimonial-controls {
   margin-top: 18px;
   display: flex;
   align-items: center;
@@ -1499,31 +1500,31 @@ background:
   width: 100%;
 }
 
+
+
+
       .title-top {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 28px;
 }
 
-.testimonial-controls {
+.testimonial-title-controls {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  margin-left: 32px;
 }
 
-.testimonial-controls button {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+.testimonial-title-controls .testimonial-btn {
+  background: var(--seal-red);
+  color: #fff;
   border: none;
-  background: #111;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(142, 13, 22, 0.25);
 }
 
-.testimonial-controls button:hover {
-  background: #8e0d16;
+      .testimonial-title-controls .testimonial-btn:hover {
+  background: var(--seal-deep);
+  transform: translateY(-2px);
 }
 
     </style>
@@ -1892,10 +1893,10 @@ focused practice, and a learning experience designed to feel realistic from the 
   <h2 class="section-title">
     <span class="title-top">
       What
-      <span class="testimonial-controls">
-        <button class="prev">←</button>
-        <button class="next">→</button>
-      </span>
+ <span class="testimonial-title-controls">
+  <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">←</button>
+  <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">→</button>
+</span>
     </span>
     <br />
     students feel as they grow.
@@ -2023,18 +2024,7 @@ focused practice, and a learning experience designed to feel realistic from the 
         </div>
       </div>
 
-      <div class="testimonial-controls">
-        <div class="testimonial-nav">
-          <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">←</button>
-          <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">→</button>
-        </div>
-        <div class="testimonial-dots" id="testimonialDots">
-          <button class="testimonial-dot active" aria-label="Go to testimonial 1"></button>
-          <button class="testimonial-dot" aria-label="Go to testimonial 2"></button>
-          <button class="testimonial-dot" aria-label="Go to testimonial 3"></button>
-          <button class="testimonial-dot" aria-label="Go to testimonial 4"></button>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -2387,7 +2377,7 @@ galleryTrack.addEventListener('mouseleave', () => {
       const testimonialSlider = document.getElementById('testimonialSlider');
       const testimonialTrack = testimonialSlider ? testimonialSlider.querySelector('.testimonial-track') : null;
       const testimonialSlides = testimonialSlider ? Array.from(testimonialSlider.querySelectorAll('.testimonial-slide')) : [];
-      const testimonialDots = testimonialSlider ? Array.from(document.querySelectorAll('#testimonialDots .testimonial-dot')) : [];
+      const testimonialDots = [];
       const testimonialPrev = document.getElementById('testimonialPrev');
       const testimonialNext = document.getElementById('testimonialNext');
       let testimonialIndex = 0;
