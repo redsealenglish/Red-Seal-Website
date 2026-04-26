@@ -879,9 +879,10 @@
 }
 
 .menu-logo {
-  width: 120px;
+  display: block;
+  width: 180px;
   height: auto;
-  margin-bottom: 20px;
+  margin: 0 auto 26px;
   opacity: 0.95;
 }
 
@@ -1345,12 +1346,15 @@
           grid-template-columns: 1fr;
         }
 
-        .menu-side {
-          padding-left: 0;
-          border-left: none;
-          border-top: 1px solid rgba(255,255,255,0.12);
-          padding-top: 24px;
-        }
+.menu-side {
+  padding-left: 28px;
+  border-left: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
 
         .program-row {
           grid-template-columns: 48px 1fr;
@@ -1498,8 +1502,8 @@
    <a href="#onboarding">Onboarding</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
- <a href="#students">Students</a>
 <a href="#gallery">Gallery</a>
+   <a href="#students">Students</a>
 </nav>
 <div class="menu-side">
   <img src="/logo.png" alt="Red Seal English logo" class="menu-logo" />
