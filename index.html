@@ -16,6 +16,22 @@
     />
     <style>
 
+body {
+  user-select: none;
+}
+
+p, h1, h2, h3, h4, h5, h6, span {
+  user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+img {
+  user-select: none;
+}
       .gallery-carousel {
   position: relative;
   overflow: hidden;
@@ -1525,6 +1541,7 @@ background:
 
       .title-row {
   position: relative;
+      padding-right: 140px;
 }
 
 .testimonial-title-controls {
@@ -1535,9 +1552,6 @@ background:
   gap: 12px;
 }
 
-      .title-row {
-  padding-right: 140px;
-}
 
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
@@ -2459,12 +2473,50 @@ if (form) {
 function closePopup() {
   popup.style.display = 'none';
 }
+</script>
 
+    <script>
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
 
+  document.addEventListener("copy", function (e) {
+    e.preventDefault();
+  });
 
+  document.addEventListener("cut", function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener("dragstart", function (e) {
+    e.preventDefault();
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("img").forEach(function (img) {
+    img.setAttribute("draggable", "false");
+  });
+});
+
+      document.addEventListener("click", function(e) {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+  });
       
-    </script>
+</script>
 
-    
+<!-- 👇 ADD THIS NEW SCRIPT RIGHT HERE -->
+<script>
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  });
+</script>
   </body>
 </html>
