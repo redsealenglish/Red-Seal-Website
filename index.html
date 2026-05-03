@@ -2508,15 +2508,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- 👇 ADD THIS NEW SCRIPT RIGHT HERE -->
 <script>
-  document.addEventListener("keydown", function (e) {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-      (e.ctrlKey && e.key === "U")
-    ) {
-      e.preventDefault();
-    }
-  });
+document.addEventListener("keydown", function (e) {
+  const key = e.key.toLowerCase();
+
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
+    (e.ctrlKey && ["u", "a", "c", "x", "s", "p"].includes(key))
+  ) {
+    e.preventDefault();
+  }
+});
 </script>
   </body>
 </html>
