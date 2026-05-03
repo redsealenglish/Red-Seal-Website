@@ -1664,6 +1664,57 @@ min-height: 340px;
   font-size: 16px;
   line-height: 1.6;
 }
+
+/* FIX MOBILE MENU */
+.fullscreen-menu {
+  display: block; /* 👈 ADD THIS LINE */
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 88px 28px 32px;
+}
+        
+.menu-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.menu-nav {
+  max-width: none;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.menu-nav a {
+  font-size: clamp(32px, 10vw, 46px);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.menu-side {
+  width: 100%;
+  padding-left: 0;
+  border-left: none;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-logo {
+  width: 70%;
+  max-width: 320px;
+  margin: 8px auto 18px;
+}
+
+.menu-copy {
+  max-width: 320px;
+}
+
+.menu-close {
+  top: 96px;
+  right: 24px;
+}
         
 }
 
