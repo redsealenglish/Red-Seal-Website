@@ -1747,6 +1747,55 @@ min-height: 340px;
         
 }
 
+      .translate-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+      /* Hide default ugly text */
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+/* Style the dropdown */
+.goog-te-combo {
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 200ms ease;
+}
+
+/* Hover effect */
+.goog-te-combo:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Remove Google branding text */
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Remove extra spacing */
+.goog-te-gadget span {
+  display: none !important;
+}
 
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
@@ -1772,7 +1821,7 @@ min-height: 340px;
 <div class="menu-side">
 <img src="/logo2.png" alt="Red Seal English logo" class="menu-logo" />
 
-  <p class="menu-kicker">Red Seal English</p>
+ <p class="menu-kicker notranslate">Red Seal English</p>
   <p class="menu-copy">
     English that helps you work, communicate, and live with confidence. Designed for people building a future in English-speaking countries.
   </p>
@@ -1789,7 +1838,7 @@ min-height: 340px;
       <div class="container header-row">
         <a class="brand" href="#top" aria-label="Red Seal English home">
           <img src="/logo.png" alt="Red Seal English logo" />
-          <p class="brand-name">Red Seal English</p>
+          <p class="brand-name notranslate">Red Seal English</p>
         </a>
 
 <nav class="nav" aria-label="Main navigation">
@@ -2737,7 +2786,7 @@ document.addEventListener("keydown", function (e) {
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
-      includedLanguages: 'es,pt,ko,fr,ar',
+      includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
