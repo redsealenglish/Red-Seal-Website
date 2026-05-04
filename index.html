@@ -17,22 +17,21 @@
     <style>
 
 body {
+body {
   user-select: none;
   top: 0 !important;
 }
 
-.goog-te-banner-frame {
+/* Hide Google Translate top bar */
+.goog-te-banner-frame,
+iframe.skiptranslate {
   display: none !important;
 }
 
-      body.translated-ltr,
-body.translated-rtl {
-  padding-top: 40px !important;
-}
-
-body.translated-ltr .site-header,
-body.translated-rtl .site-header {
-  top: 40px !important;
+html,
+body {
+  top: 0 !important;
+  position: static !important;
 }
 
 p, h1, h2, h3, h4, h5, h6, span {
