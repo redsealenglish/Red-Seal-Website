@@ -1803,22 +1803,20 @@ min-height: 340px;
 }
 
 .translate-header-row {
-  min-height: 52px;
+  min-height: 40px; /* smaller height */
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
+  justify-content: flex-end; /* 👈 move to right */
+  gap: 8px; /* smaller gap */
+  padding-right: 24px; /* spacing from edge */
   background: rgba(248, 241, 232, 0.82);
   border-bottom: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 .translate-header-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.58);
-  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.08em; /* tighter */
+  opacity: 0.7;
 }
 
 #google_translate_element_header .goog-te-combo {
@@ -1828,6 +1826,29 @@ min-height: 340px;
   background: rgba(255,255,255,0.78);
   border: 1px solid rgba(215,38,47,0.14);
   box-shadow: 0 10px 24px rgba(142,13,22,0.08);
+}
+
+      /* hide default google icon */
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* wrapper */
+#google_translate_element_header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* add custom icon */
+#google_translate_element_header::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/2991/2991148.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
 }
 
     </style>
