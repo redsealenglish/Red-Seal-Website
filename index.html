@@ -18,6 +18,11 @@
 
 body {
   user-select: none;
+  top: 0 !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
 }
 
 p, h1, h2, h3, h4, h5, h6, span {
@@ -394,6 +399,24 @@ background:
         line-height: 1.9;
         color: rgba(255,255,255,0.72);
       }
+
+      .translate-box {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.translate-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.56);
+}
+
+.goog-te-combo {
+  max-width: 220px;
+}
 
       .hero {
         padding: 46px 0 54px;
@@ -1753,6 +1776,11 @@ min-height: 340px;
   <p class="menu-copy">
     English that helps you work, communicate, and live with confidence. Designed for people building a future in English-speaking countries.
   </p>
+<div class="translate-box">
+  <p class="translate-label">View in your language</p>
+  <div id="google_translate_element"></div>
+</div>
+  
 </div>
       </div>
     </div>
@@ -2705,5 +2733,17 @@ document.addEventListener("keydown", function (e) {
   }
 });
 </script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,pt,ko,fr,ar',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
   </body>
 </html>
