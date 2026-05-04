@@ -1861,15 +1861,6 @@ min-height: 340px;
 }
 
 /* add custom icon */
-#google_translate_element_header::after {
-  content: "";
-  width: 16px;
-  height: 16px;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/2991/2991148.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-}
 
       .goog-te-gadget img,
 .goog-logo-link,
@@ -2888,8 +2879,7 @@ document.addEventListener("keydown", function (e) {
   function googleTranslateElementInit() {
 new google.translate.TranslateElement({
   pageLanguage: 'en',
-  includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
-  layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl'
 }, 'google_translate_element_header');
   }
 </script>
