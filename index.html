@@ -415,7 +415,27 @@ background:
 }
 
 .goog-te-combo {
-  max-width: 220px;
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 180px;              /* 👈 BIGGER CLICK AREA */
+  height: 36px;
+
+  background: rgba(255,255,255,0.9);
+  color: #111;
+
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 999px;
+
+  padding: 0 14px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 2;                /* 👈 ensures it's clickable */
 }
 
       .hero {
@@ -1849,6 +1869,25 @@ min-height: 340px;
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.8;
+}
+
+      .goog-te-gadget img,
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+
+      #google_translate_element_header {
+  position: relative;
+  z-index: 5;
+}
+
+      .translate-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 6px 24px;
 }
 
     </style>
