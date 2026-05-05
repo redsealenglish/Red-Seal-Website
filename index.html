@@ -1954,6 +1954,84 @@ body.translated-rtl .hero-video-content {
   align-items: center;
   justify-content: center;
 }
+
+      /* MOBILE OVERFLOW FIX */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    overflow: hidden;
+  }
+
+  .header-row {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .brand {
+    max-width: 150px;
+    flex-shrink: 1;
+  }
+
+  .brand img {
+    height: 44px;
+  }
+
+  .brand-name {
+    font-size: 11px;
+    max-width: 92px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .header-actions .button {
+    padding: 8px 12px;
+    min-height: 36px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .menu-button {
+    transform: none;
+    gap: 8px;
+  }
+
+  .mobile-cta {
+    display: none;
+  }
+
+  .translate-header-row {
+    justify-content: center;
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .translate-header-label {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .goog-te-combo {
+    width: 190px;
+    max-width: 70vw;
+  }
+
+  .hero-shell {
+    border-radius: 32px;
+  }
+}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
