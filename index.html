@@ -27,14 +27,14 @@ top: 0 !important;
 display: none !important;
 }
 
-      body.translated-ltr,
+body.translated-ltr,
 body.translated-rtl {
-  padding-top: 40px !important;
+  padding-top: 0 !important;
 }
 
 body.translated-ltr .site-header,
 body.translated-rtl .site-header {
-  top: 40px !important;
+  top: 0 !important;
 }
 
 p, h1, h2, h3, h4, h5, h6, span {
@@ -2032,6 +2032,132 @@ body.translated-rtl .hero-video-content {
     border-radius: 32px;
   }
 }
+/* PREMIUM MOBILE HEADER FIX */
+@media (max-width: 768px) {
+  .site-header {
+    overflow: visible !important;
+    background: rgba(248, 241, 232, 0.92);
+    backdrop-filter: blur(18px);
+  }
+
+  .header-row {
+    min-height: 72px;
+    padding: 10px 0;
+    gap: 12px;
+  }
+
+  .brand {
+    max-width: none;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .brand img {
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-size: 12px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-actions .button {
+    display: none;
+  }
+
+  .menu-button {
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    box-shadow: 0 10px 24px rgba(142,13,22,0.08);
+  }
+
+  .menu-button span:first-child {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .translate-header-row {
+    position: sticky;
+    top: 72px;
+    z-index: 59;
+    padding: 12px 16px 14px;
+    justify-content: center;
+    background: rgba(248, 241, 232, 0.96);
+    border-bottom: 1px solid rgba(17,17,17,0.08);
+  }
+
+  .translate-header-label {
+    display: none;
+  }
+
+  .translate-controls {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.76);
+    box-shadow: 0 14px 34px rgba(142,13,22,0.10);
+  }
+
+  #google_translate_element_header {
+    width: 100%;
+  }
+
+  #google_translate_element_header .goog-te-gadget {
+    width: 100%;
+  }
+
+  #google_translate_element_header .goog-te-combo,
+  .goog-te-combo {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid rgba(215,38,47,0.16) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
+  .translate-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+
+  .hero-shell {
+    border-radius: 30px;
+  }
+
+  .hero-inner {
+    padding: 18px;
+  }
+
+  .hero-video-card,
+  .hero-accent-card {
+    border-radius: 26px;
+  }
+}
+      
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -2060,10 +2186,6 @@ body.translated-rtl .hero-video-content {
 <p class="menu-copy">
 English that helps you work, communicate, and live with confidence. Designed for people building a future in English-speaking countries.
 </p>
-<div class="translate-box">
-<p class="translate-label">View in your language</p>
-<div id="google_translate_element_menu"></div>
-</div>
 
 </div>
 </div>
@@ -3030,31 +3152,38 @@ e.preventDefault();
 }
 });
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({
-pageLanguage: 'en',
-includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl'
-}, 'google_translate_element_header');
-}
+
+      <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element_header');
+  }
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-  function adjustForGoogleBar() {
-    const googleBar = document.querySelector('iframe.skiptranslate');
 
-    if (googleBar && googleBar.offsetHeight > 0) {
-      document.body.style.paddingTop = googleBar.offsetHeight + 'px';
-      document.querySelector('.site-header').style.top = googleBar.offsetHeight + 'px';
-    } else {
-      document.body.style.paddingTop = '0px';
-      document.querySelector('.site-header').style.top = '0px';
+<script>
+  function stabilizeTranslateDropdown() {
+    const combo = document.querySelector('#google_translate_element_header select.goog-te-combo');
+    const holder = document.getElementById('google_translate_element_header');
+
+    if (combo && holder && !holder.contains(combo)) {
+      holder.appendChild(combo);
     }
+
+    document.body.style.top = '0px';
+
+    const header = document.querySelector('.site-header');
+    if (header) header.style.top = '0px';
   }
 
-  setInterval(adjustForGoogleBar, 500);
+  setInterval(stabilizeTranslateDropdown, 700);
 </script>
+
  <script>
   function adjustFontForTranslationRefined() {
     const isTranslated =
