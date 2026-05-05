@@ -1914,10 +1914,15 @@ opacity: 1;
   font-size: 0.92em;
 }      
 /* Translation overflow fix */
-.translated-active .hero-video-title {
-  font-size: clamp(28px, 5.5vw, 46px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+body.translated-active .hero-video-title,
+html.translated-ltr .hero-video-title,
+html.translated-rtl .hero-video-title,
+body.translated-ltr .hero-video-title,
+body.translated-rtl .hero-video-title {
+  font-size: clamp(24px, 4vw, 36px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
+  max-width: 520px;
 }
 
 .translated-active .hero-video-copy {
@@ -1925,9 +1930,13 @@ opacity: 1;
   line-height: 1.45;
 }
 
-.translated-active .hero-video-content {
-  top: 28px;
-  bottom: auto;
+body.translated-active .hero-video-content,
+html.translated-ltr .hero-video-content,
+html.translated-rtl .hero-video-content,
+body.translated-ltr .hero-video-content,
+body.translated-rtl .hero-video-content {
+  top: 26px !important;
+  bottom: auto !important;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
