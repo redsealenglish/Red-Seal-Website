@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <link rel="icon" href="/favicon.ico" type="image/x-icon">
-      <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" href="/favicon.png">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Red Seal English</title>
@@ -29,12 +29,12 @@ display: none !important;
 
 body.translated-ltr,
 body.translated-rtl {
-  padding-top: 0 !important;
+padding-top: 40px !important;
 }
 
 body.translated-ltr .site-header,
 body.translated-rtl .site-header {
-  top: 0 !important;
+top: 40px !important;
 }
 
 p, h1, h2, h3, h4, h5, h6, span {
@@ -411,8 +411,6 @@ max-width: 360px;
 line-height: 1.9;
 color: rgba(255,255,255,0.72);
 }
-
-
 
 .translate-box {
 margin-top: 24px;
@@ -1903,17 +1901,17 @@ opacity: 1;
 .translated-active span,
 .translated-active .menu-link,
 .translated-active .translate-header-label {
-  font-size: 0.85em;
+font-size: 0.85em;
 }
 
 /* Slightly reduce large headings (not too much) */
 .translated-active h1 {
-  font-size: 0.9em;
+font-size: 0.9em;
 }
 
 .translated-active h2,
 .translated-active h3 {
-  font-size: 0.92em;
+font-size: 0.92em;
 }      
 /* Translation overflow fix */
 body.translated-active .hero-video-title,
@@ -1921,15 +1919,15 @@ html.translated-ltr .hero-video-title,
 html.translated-rtl .hero-video-title,
 body.translated-ltr .hero-video-title,
 body.translated-rtl .hero-video-title {
-  font-size: clamp(24px, 4vw, 36px) !important;
-  line-height: 1.08 !important;
-  letter-spacing: -0.02em !important;
-  max-width: 520px;
+font-size: clamp(24px, 4vw, 36px) !important;
+line-height: 1.08 !important;
+letter-spacing: -0.02em !important;
+max-width: 520px;
 }
 
 .translated-active .hero-video-copy {
-  font-size: 15px;
-  line-height: 1.45;
+font-size: 15px;
+line-height: 1.45;
 }
 
 body.translated-active .hero-video-content,
@@ -1937,229 +1935,9 @@ html.translated-ltr .hero-video-content,
 html.translated-rtl .hero-video-content,
 body.translated-ltr .hero-video-content,
 body.translated-rtl .hero-video-content {
-  top: 26px !important;
-  bottom: auto !important;
+top: 26px !important;
+bottom: auto !important;
 }
-
-      /* Smaller header button */
-.header-actions .button {
-  padding: 10px 16px;       /* smaller */
-  min-height: 40px;         /* reduce height */
-  font-size: 11px;          /* slightly smaller text */
-  letter-spacing: 0.12em;   /* tighter */
-}
-
-/* Keep text in one line and centered */
-.header-actions .button {
-  white-space: nowrap;      /* 👈 prevents "Enroll / Now" breaking */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-      /* MOBILE OVERFLOW FIX */
-@media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .site-header {
-    overflow: hidden;
-  }
-
-  .header-row {
-    gap: 8px;
-    min-width: 0;
-  }
-
-  .brand {
-    max-width: 150px;
-    flex-shrink: 1;
-  }
-
-  .brand img {
-    height: 44px;
-  }
-
-  .brand-name {
-    font-size: 11px;
-    max-width: 92px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .header-actions {
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
-  .header-actions .button {
-    padding: 8px 12px;
-    min-height: 36px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-  }
-
-  .menu-button {
-    transform: none;
-    gap: 8px;
-  }
-
-  .mobile-cta {
-    display: none;
-  }
-
-  .translate-header-row {
-    justify-content: center;
-    padding: 10px 14px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .translate-header-label {
-    font-size: 10px;
-    text-align: center;
-  }
-
-  .goog-te-combo {
-    width: 190px;
-    max-width: 70vw;
-  }
-
-  .hero-shell {
-    border-radius: 32px;
-  }
-}
-/* PREMIUM MOBILE HEADER FIX */
-@media (max-width: 768px) {
-  .site-header {
-    overflow: visible !important;
-    background: rgba(248, 241, 232, 0.92);
-    backdrop-filter: blur(18px);
-  }
-
-  .header-row {
-    min-height: 72px;
-    padding: 10px 0;
-    gap: 12px;
-  }
-
-  .brand {
-    max-width: none;
-    gap: 8px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .brand img {
-    height: 48px;
-    flex-shrink: 0;
-  }
-
-  .brand-name {
-    font-size: 12px;
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .header-actions {
-    gap: 10px;
-  }
-
-  .header-actions .button {
-    display: none;
-  }
-
-  .menu-button {
-    padding: 10px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.72);
-    box-shadow: 0 10px 24px rgba(142,13,22,0.08);
-  }
-
-  .menu-button span:first-child {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-  }
-
-  .translate-header-row {
-    position: sticky;
-    top: 72px;
-    z-index: 59;
-    padding: 12px 16px 14px;
-    justify-content: center;
-    background: rgba(248, 241, 232, 0.96);
-    border-bottom: 1px solid rgba(17,17,17,0.08);
-  }
-
-  .translate-header-label {
-    display: none;
-  }
-
-  .translate-controls {
-    width: 100%;
-    max-width: 360px;
-    justify-content: center;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.76);
-    box-shadow: 0 14px 34px rgba(142,13,22,0.10);
-  }
-
-  #google_translate_element_header {
-    width: 100%;
-  }
-
-  #google_translate_element_header .goog-te-gadget {
-    width: 100%;
-  }
-
-  #google_translate_element_header .goog-te-combo,
-  .goog-te-combo {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    height: 44px !important;
-    margin: 0 !important;
-    padding: 0 18px !important;
-    border-radius: 999px !important;
-    background: #fff !important;
-    color: #111 !important;
-    border: 1px solid rgba(215,38,47,0.16) !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-  }
-
-  .translate-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-  }
-
-  .hero {
-    padding-top: 28px;
-  }
-
-  .hero-shell {
-    border-radius: 30px;
-  }
-
-  .hero-inner {
-    padding: 18px;
-  }
-
-  .hero-video-card,
-  .hero-accent-card {
-    border-radius: 26px;
-  }
-}
-      
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -2188,10 +1966,9 @@ body.translated-rtl .hero-video-content {
 <p class="menu-copy">
 English that helps you work, communicate, and live with confidence. Designed for people building a future in English-speaking countries.
 </p>
-
-            <div class="translate-box">
-  <p class="translate-label">View in your language</p>
-  <div id="google_translate_element_menu"></div>
+<div class="translate-box">
+<p class="translate-label">View in your language</p>
+<div id="google_translate_element_menu"></div>
 </div>
 
 </div>
@@ -2218,6 +1995,7 @@ English that helps you work, communicate, and live with confidence. Designed for
 </nav>
 
 <div class="header-actions">
+<a class="header-cta ghost-link" href="#contact">Enroll now <span class="arrow">↗</span></a>
 <a class="button" href="#contact">Enroll now <span class="arrow">↗</span></a>
 
 <div class="header-right">
@@ -2880,36 +2658,36 @@ Red Seal English reinforces its commitment to the security and privacy of your d
 </footer>
 
 <div id="successPopup" style="
- position: fixed;
- inset: 0;
- background: rgba(0,0,0,0.6);
- display: none;
- align-items: center;
- justify-content: center;
- z-index: 999;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.6);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 999;
 ">
 <div style="
-   background: white;
-   padding: 40px 32px;
-   border-radius: 24px;
-   text-align: center;
-   max-width: 360px;
-   width: 90%;
-   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
- ">
+  background: white;
+  padding: 40px 32px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+">
 <img src="/logo.png" style="width: 80px; margin: 0 auto 18px; display: block;" />
 <p style="font-size: 18px; margin-bottom: 24px;">
 Thank you, we’ll be in touch soon.
 </p>
 
 <button onclick="closePopup()" style="
-     padding: 12px 20px;
-     border-radius: 999px;
-     border: none;
-     background: #d7262f;
-     color: white;
-     cursor: pointer;
-   ">
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: none;
+    background: #d7262f;
+    color: white;
+    cursor: pointer;
+  ">
 Close
 </button>
 </div>
@@ -3159,76 +2937,58 @@ e.preventDefault();
 }
 });
 </script>
-
 <script type="text/javascript">
-  function googleTranslateElementInit() {
-
-    // HEADER DROPDOWN
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element_header');
-
-    // MENU DROPDOWN
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element_menu');
-
-  }
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'en',
+includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl'
+}, 'google_translate_element_header');
+}
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <script>
-  function stabilizeTranslateDropdown() {
-    const combo = document.querySelector('#google_translate_element_header select.goog-te-combo');
-    const holder = document.getElementById('google_translate_element_header');
+function adjustForGoogleBar() {
+const googleBar = document.querySelector('iframe.skiptranslate');
 
-    if (combo && holder && !holder.contains(combo)) {
-      holder.appendChild(combo);
-    }
+if (googleBar && googleBar.offsetHeight > 0) {
+document.body.style.paddingTop = googleBar.offsetHeight + 'px';
+document.querySelector('.site-header').style.top = googleBar.offsetHeight + 'px';
+} else {
+document.body.style.paddingTop = '0px';
+document.querySelector('.site-header').style.top = '0px';
+}
+}
 
-    document.body.style.top = '0px';
-
-    const header = document.querySelector('.site-header');
-    if (header) header.style.top = '0px';
-  }
-
-  setInterval(stabilizeTranslateDropdown, 700);
+setInterval(adjustForGoogleBar, 500);
 </script>
+<script>
+function adjustFontForTranslationRefined() {
+const isTranslated =
+document.body.classList.contains('translated-ltr') ||
+document.body.classList.contains('translated-rtl');
 
- <script>
-  function adjustFontForTranslationRefined() {
-    const isTranslated =
-      document.body.classList.contains('translated-ltr') ||
-      document.body.classList.contains('translated-rtl');
+if (isTranslated) {
+document.body.classList.add('translated-active');
+} else {
+document.body.classList.remove('translated-active');
+}
+}
 
-    if (isTranslated) {
-      document.body.classList.add('translated-active');
-    } else {
-      document.body.classList.remove('translated-active');
-    }
-  }
-
-  setInterval(adjustFontForTranslationRefined, 500);
+setInterval(adjustFontForTranslationRefined, 500);
 </script>  
 
-      <script>
-  const originalTitle = "Red Seal English";
+<script>
+const originalTitle = "Red Seal English";
 
-  function keepOriginalTitle() {
-    if (document.title !== originalTitle) {
-      document.title = originalTitle;
-    }
-  }
+function keepOriginalTitle() {
+if (document.title !== originalTitle) {
+document.title = originalTitle;
+}
+}
 
-  setInterval(keepOriginalTitle, 500);
+setInterval(keepOriginalTitle, 500);
 </script>
-      
+
 </body>
 </html>
