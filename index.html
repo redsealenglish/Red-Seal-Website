@@ -412,6 +412,8 @@ line-height: 1.9;
 color: rgba(255,255,255,0.72);
 }
 
+
+
 .translate-box {
 margin-top: 24px;
 text-align: center;
@@ -2187,6 +2189,11 @@ body.translated-rtl .hero-video-content {
 English that helps you work, communicate, and live with confidence. Designed for people building a future in English-speaking countries.
 </p>
 
+            <div class="translate-box">
+  <p class="translate-label">View in your language</p>
+  <div id="google_translate_element_menu"></div>
+</div>
+
 </div>
 </div>
 </div>
@@ -3153,14 +3160,25 @@ e.preventDefault();
 });
 </script>
 
-      <script type="text/javascript">
+<script type="text/javascript">
   function googleTranslateElementInit() {
+
+    // HEADER DROPDOWN
     new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
     }, 'google_translate_element_header');
+
+    // MENU DROPDOWN
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element_menu');
+
   }
 </script>
 
