@@ -1466,18 +1466,19 @@ grid-column: 2;
   }
 
 .header-actions {
-  gap: 10px;
+  gap: 6px; /* tighter between Enroll + Menu */
 }
 
 .header-actions .button {
-  min-height: 28px;      /* ~50% of original 54px */
-  padding: 0 10px;       /* reduced horizontal size */
-  font-size: 9px;        /* smaller text */
-  letter-spacing: 0.1em;
+  min-height: 28px;
+  padding: 0 8px;      /* 👈 smaller width */
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin-left: 0;      /* 👈 remove push from left */
 }
 
 .menu-button {
-  margin-left: 6px; /* 👈 space between Enroll and Menu */
+  margin-left: 2px;    /* 👈 keeps slight separation */
 }
 
   .hero-inner,
