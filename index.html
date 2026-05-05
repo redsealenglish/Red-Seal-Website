@@ -1895,6 +1895,25 @@ transition: opacity 0.2s ease;
 opacity: 1;
 }
 
+/* Only shrink readable text, not layout */
+.translated-active p,
+.translated-active li,
+.translated-active span,
+.translated-active .menu-link,
+.translated-active .translate-header-label {
+  font-size: 0.85em;
+}
+
+/* Slightly reduce large headings (not too much) */
+.translated-active h1 {
+  font-size: 0.9em;
+}
+
+.translated-active h2,
+.translated-active h3 {
+  font-size: 0.92em;
+}      
+
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -2918,5 +2937,33 @@ includedLanguages: 'es,pt,ko,fr,ar,it,de,zh-CN,ja,ru,hi,uk,pl,tr,fa,vi,tl'
 
   setInterval(adjustForGoogleBar, 500);
 </script>
+ <script>
+  function adjustFontForTranslationRefined() {
+    const isTranslated =
+      document.body.classList.contains('translated-ltr') ||
+      document.body.classList.contains('translated-rtl');
+
+    if (isTranslated) {
+      document.body.classList.add('translated-active');
+    } else {
+      document.body.classList.remove('translated-active');
+    }
+  }
+
+  setInterval(adjustFontForTranslationRefined, 500);
+</script>  
+
+      <script>
+  const originalTitle = "Red Seal English";
+
+  function keepOriginalTitle() {
+    if (document.title !== originalTitle) {
+      document.title = originalTitle;
+    }
+  }
+
+  setInterval(keepOriginalTitle, 500);
+</script>
+      
 </body>
 </html>
