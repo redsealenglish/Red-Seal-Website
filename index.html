@@ -1913,7 +1913,22 @@ opacity: 1;
 .translated-active h3 {
   font-size: 0.92em;
 }      
+/* Translation overflow fix */
+.translated-active .hero-video-title {
+  font-size: clamp(28px, 5.5vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
 
+.translated-active .hero-video-copy {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.translated-active .hero-video-content {
+  top: 28px;
+  bottom: auto;
+}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
