@@ -1931,13 +1931,19 @@ font-size: 0.9em;
 .translated-active h2,
 .translated-active h3 {
 font-size: 0.92em;
-} 
-
-/* Translation auto-fit only */
-body.translated-active .auto-fit-translation {
-  transition: font-size 0.2s ease, line-height 0.2s ease;
+}      
+/* Translation overflow fix */
+body.translated-active .hero-video-title,
+html.translated-ltr .hero-video-title,
+html.translated-rtl .hero-video-title,
+body.translated-ltr .hero-video-title,
+body.translated-rtl .hero-video-title {
+font-size: clamp(24px, 4vw, 36px) !important;
+line-height: 1.08 !important;
+letter-spacing: -0.02em !important;
+max-width: 520px;
 }
-  
+
 .translated-active .hero-video-copy {
 font-size: 15px;
 line-height: 1.45;
@@ -1977,7 +1983,7 @@ body.in-app-browser .menu-button {
   letter-spacing: 0.1em !important;
 }
 
- 
+  
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -3015,53 +3021,6 @@ document.body.classList.remove('translated-active');
 
 setInterval(adjustFontForTranslationRefined, 500);
 </script>  
-
-  <script>
-  function fitTranslatedText() {
-    const isTranslated =
-      document.body.classList.contains('translated-ltr') ||
-      document.body.classList.contains('translated-rtl');
-
-    const elements = document.querySelectorAll(
-      '.hero-video-title, .hero-video-copy, .section-title, .lead, .statement, .info-title, .program-title, .faq-question, .principle'
-    );
-
-    elements.forEach(function (el) {
-      if (!el.dataset.originalFontSize) {
-        el.dataset.originalFontSize = window.getComputedStyle(el).fontSize;
-        el.dataset.originalLineHeight = window.getComputedStyle(el).lineHeight;
-      }
-
-      el.classList.add('auto-fit-translation');
-
-      if (!isTranslated) {
-        el.style.fontSize = '';
-        el.style.lineHeight = '';
-        return;
-      }
-
-      el.style.fontSize = el.dataset.originalFontSize;
-      el.style.lineHeight = el.dataset.originalLineHeight;
-
-      let size = parseFloat(window.getComputedStyle(el).fontSize);
-      let attempts = 0;
-
-      while (
-        (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) &&
-        size > 12 &&
-        attempts < 20
-      ) {
-        size = size - 1;
-        el.style.fontSize = size + 'px';
-        el.style.lineHeight = '1.12';
-        attempts++;
-      }
-    });
-  }
-
-  setInterval(fitTranslatedText, 700);
-  window.addEventListener('resize', fitTranslatedText);
-</script>
 
 <script>
 const originalTitle = "Red Seal English";
