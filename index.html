@@ -1469,10 +1469,9 @@ grid-column: 2;
 .header-actions {
   gap: 6px; /* tighter between Enroll + Menu */
 }
-
 .header-actions .button {
-  min-height: 28px;
-  padding: 0 8px;      /* 👈 smaller width */
+  min-height: 30px;
+  padding: 0 10px;     /* 👈 smaller width */
   font-size: 9px;
   letter-spacing: 0.08em;
   margin-left: 0;      /* 👈 remove push from left */
@@ -1640,12 +1639,16 @@ gap: 10px;
 }
 
 .brand img {
-height: 52px;
+height: 44px;
 }
 
 .brand-name {
-font-size: clamp(11px, 3.5vw, 13px);
+font-size: 11px;
 white-space: nowrap;
+max-width: 92px;
+overflow: hidden;
+display: block;
+}
 }
 
 .hero {
@@ -1953,51 +1956,6 @@ top: 26px !important;
 bottom: auto !important;
 }
 
-  /* Fix Instagram/TikTok in-app mobile header */
-@media (max-width: 768px) {
-  .header-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .brand {
-    min-width: 0;
-    gap: 8px;
-  }
-
-  .brand img {
-    height: 48px;
-    flex-shrink: 0;
-  }
-
-  .brand-name {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-   max-width: 145px;
-  }
-
-  .header-actions {
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
-  .header-actions .button {
-    min-height: 34px;
-    padding: 0 12px;
-    font-size: 10px;
-    letter-spacing: 0.09em;
-  }
-
-  .menu-button {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    gap: 8px;
-  }
-}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
