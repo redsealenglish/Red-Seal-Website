@@ -1943,15 +1943,6 @@ font-size: 15px;
 line-height: 1.45;
 }
 
-body.translated-active .hero-video-content,
-html.translated-ltr .hero-video-content,
-html.translated-rtl .hero-video-content,
-body.translated-ltr .hero-video-content,
-body.translated-rtl .hero-video-content {
-top: 26px !important;
-bottom: auto !important;
-}
-
 
   /* Instagram / TikTok in-app browser ONLY */
 body.in-app-browser .brand img {
@@ -1975,6 +1966,18 @@ body.in-app-browser .header-actions .button {
 body.in-app-browser .menu-button {
   font-size: 10px !important;
   letter-spacing: 0.1em !important;
+}
+
+  /* Mobile translated hero only */
+@media (max-width: 768px) {
+  body.translated-active .hero-video-content,
+  html.translated-ltr .hero-video-content,
+  html.translated-rtl .hero-video-content,
+  body.translated-ltr .hero-video-content,
+  body.translated-rtl .hero-video-content {
+    top: 26px !important;
+    bottom: auto !important;
+  }
 }
 
  
