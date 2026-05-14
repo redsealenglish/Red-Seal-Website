@@ -1649,7 +1649,7 @@ max-width: 150px;
 overflow: hidden;
 display: block;
 letter-spacing: -0.01em;
-margin-left: 4px;
+margin-left: 5px;
 }
 }
 
@@ -1958,6 +1958,32 @@ top: 26px !important;
 bottom: auto !important;
 }
 
+
+  /* Instagram / TikTok in-app browser ONLY */
+body.in-app-browser .brand img {
+  height: 36px !important;
+}
+
+body.in-app-browser .brand-name {
+  font-size: 9px !important;
+  max-width: 82px !important;
+  margin-left: 2px !important;
+  letter-spacing: -0.04em !important;
+}
+
+body.in-app-browser .header-actions .button {
+  min-height: 26px !important;
+  padding: 0 7px !important;
+  font-size: 8.5px !important;
+  letter-spacing: 0.06em !important;
+}
+
+body.in-app-browser .menu-button {
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+}
+
+  
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
@@ -3008,5 +3034,25 @@ document.title = originalTitle;
 setInterval(keepOriginalTitle, 500);
 </script>
 
+<script>
+  function detectInAppBrowser() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    const isInApp =
+      ua.includes("Instagram") ||
+      ua.includes("FBAN") ||
+      ua.includes("FBAV") ||
+      ua.includes("TikTok");
+
+    if (isInApp) {
+      document.body.classList.add("in-app-browser");
+    }
+  }
+
+  detectInAppBrowser();
+</script>
+  
+  
+  
 </body>
 </html>
