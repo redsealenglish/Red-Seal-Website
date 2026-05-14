@@ -1943,14 +1943,6 @@ font-size: 15px;
 line-height: 1.45;
 }
 
-body.translated-active .hero-video-content,
-html.translated-ltr .hero-video-content,
-html.translated-rtl .hero-video-content,
-body.translated-ltr .hero-video-content,
-body.translated-rtl .hero-video-content {
-top: 26px !important;
-bottom: auto !important;
-}
 
 
   /* Instagram / TikTok in-app browser ONLY */
@@ -1975,6 +1967,61 @@ body.in-app-browser .header-actions .button {
 body.in-app-browser .menu-button {
   font-size: 10px !important;
   letter-spacing: 0.1em !important;
+}
+
+  /* Better spacing for translated languages */
+body.translated-active .hero-video-card,
+body.translated-active .hero-accent-card,
+body.translated-active .glass-card,
+body.translated-active .dark-card,
+body.translated-active .info-card,
+body.translated-active .program-row,
+body.translated-active .faq-card,
+body.translated-active .step-card {
+  height: auto !important;
+  min-height: fit-content !important;
+  overflow: visible !important;
+}
+
+body.translated-active .hero-video-content {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  padding: 28px !important;
+}
+
+body.translated-active .hero-video-card {
+  display: flex !important;
+  align-items: flex-end !important;
+}
+
+body.translated-active .section-title,
+body.translated-active .lead,
+body.translated-active .statement,
+body.translated-active .program-title,
+body.translated-active .info-title,
+body.translated-active .faq-question,
+body.translated-active .principle {
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+body.translated-active p,
+body.translated-active .section-copy,
+body.translated-active .info-copy,
+body.translated-active .program-description,
+body.translated-active .faq-answer,
+body.translated-active .step-copy,
+body.translated-active .hero-video-copy {
+  line-height: 1.65 !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
  
