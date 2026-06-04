@@ -1540,6 +1540,76 @@ margin: 0 auto 18px;
 display: block;
 }
 
+.teachers-carousel {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 10px 0 28px;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.teachers-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.teachers-carousel:active {
+  cursor: grabbing;
+}
+
+.teachers-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+}
+
+.teacher-card {
+  flex: 0 0 min(360px, 82vw);
+  padding: 34px 32px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  scroll-snap-align: start;
+}
+
+.teacher-card .teacher-photo {
+  margin-bottom: 18px;
+}
+.teachers-carousel::before,
+.teachers-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.teachers-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8f1e8, transparent);
+}
+
+.teachers-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8f1e8, transparent);
+}
+
+@media (max-width: 768px) {
+  .teacher-card {
+    flex-basis: 86vw;
+  }
+
+  .teachers-carousel::before,
+  .teachers-carousel::after {
+    width: 36px;
+  }
+}
+
 .gallery-grid {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
@@ -2271,37 +2341,40 @@ Live conversation classes every Friday at 5pm (Toronto time) focused on real com
 <p class="eyebrow">Teachers</p>
 <h2 class="section-title">Meet the teachers behind the experience.</h2>
 </div>
-<div class="bios-grid">
-<article class="info-card">
-<img src="/alan.jpg" alt="Alan Moura" class="teacher-photo" />
 
-<p class="info-kicker">Teacher</p>
-<h3 class="info-title">Alan Moura</h3>
+<div class="teachers-carousel" id="teachersCarousel">
+  <div class="teachers-track">
+
+    <article class="teacher-card">
+      <img src="/alan.jpg" alt="Alan Moura" class="teacher-photo" />
+      <p class="info-kicker">Teacher</p>
+      <h3 class="info-title">Alan Moura</h3>
 <p class="info-copy">
-Alan Moura is the founder of Red Seal English and an experienced instructor with over 14 years of teaching. He specializes in helping students communicate clearly in real-world situations, including work, interviews, and language exams like CELPIP and CAEL.
+  Alan Moura is the founder of Red Seal English and an experienced instructor with over 14 years of teaching. He specializes in helping students communicate clearly in real-world situations, including work, interviews, and language exams like CELPIP and CAEL. His approach focuses on practical communication, fluency, and confidence so students can perform when it actually matters.
 </p>
+    </article>
 
-<p class="info-copy" style="margin-top:12px;">
-His approach focuses on practical communication, fluency, and confidence — so students can perform when it actually matters.
-</p>
+    <article class="teacher-card">
+      <img src="/daniel.jpg" alt="Daniel da Silva" class="teacher-photo" />
+      <p class="info-kicker">Teacher</p>
+      <h3 class="info-title">Daniel da Silva</h3>
+      <p class="info-copy">
+        Daniel is an English teacher with over 4 years of experience helping students build confidence in speaking and communication, with a focus on practical English for real-life situations. He is passionate about the English language and enjoys helping others grow and achieve fluency with confidence.
+      </p>
+    </article>
 
+<article class="teacher-card">
+  <img src="/emmanuel.jpg" alt="Emmanuel Abidemi Ojo" class="teacher-photo" />
+  <p class="info-kicker">Teacher</p>
+  <h3 class="info-title">Emmanuel Abidemi Ojo</h3>
+  <p class="info-copy">
+    Emmanuel Ojo is an English language teacher with over four years of teaching experience. He is passionate about helping students improve their speaking, reading, writing, and communication skills through engaging and practical lessons. He enjoys creating a supportive learning environment that builds students’ confidence and encourages effective use of English in everyday situations.
+  </p>
 </article>
-<article class="info-card">
-<img src="/daniel.jpg" alt="Daniel da Silva" class="teacher-photo" />
 
-<p class="info-kicker">Teacher</p>
-<h3 class="info-title">Daniel da Silva</h3>
-<p class="info-copy">Daniel is an English teacher with over 4 years of experience helping students build confidence in speaking and communication, with a focus on practical English for real-life situations. He is passionate about the English language and enjoys helping others grow and achieve fluency with confidence.</p>
-</article>
-
-  <article class="info-card">
-<img src="/emmanuel.jpg" alt="Emmanuel Abidemi Ojo" class="teacher-photo" />
-
-<p class="info-kicker">Teacher</p>
-<h3 class="info-title">Emmanuel Abidemi Ojo</h3>
-<p class="info-copy">Emmanuel Ojo is an English language teacher with over four years of teaching experience. He is passionate about helping students improve their speaking, reading, writing, and communication skills through engaging and practical lessons. He enjoys creating a supportive learning environment that builds students’ confidence and encourages effective use of English in everyday situations.</p>
-</article>
+  </div>
 </div>
+
 </div>
 </section>
 
@@ -3109,7 +3182,52 @@ setInterval(keepOriginalTitle, 500);
   detectInAppBrowser();
 </script>
   
-  
-  
+<script>
+const teachersCarousel = document.getElementById('teachersCarousel');
+
+if (teachersCarousel) {
+  let targetScroll = teachersCarousel.scrollLeft;
+  let currentScroll = teachersCarousel.scrollLeft;
+  let isTouching = false;
+
+  function animateTeachersCarousel() {
+    if (!isTouching) {
+      currentScroll += (targetScroll - currentScroll) * 0.08;
+      teachersCarousel.scrollLeft = currentScroll;
+    }
+
+    requestAnimationFrame(animateTeachersCarousel);
+  }
+
+  teachersCarousel.addEventListener('mousemove', function (e) {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const rect = teachersCarousel.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const percentage = mouseX / rect.width;
+    const maxScroll = teachersCarousel.scrollWidth - teachersCarousel.clientWidth;
+
+    targetScroll = maxScroll * percentage;
+  });
+
+  teachersCarousel.addEventListener('mouseleave', function () {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    targetScroll = 0;
+  });
+
+  teachersCarousel.addEventListener('touchstart', function () {
+    isTouching = true;
+  }, { passive: true });
+
+  teachersCarousel.addEventListener('touchend', function () {
+    isTouching = false;
+    currentScroll = teachersCarousel.scrollLeft;
+    targetScroll = teachersCarousel.scrollLeft;
+  }, { passive: true });
+
+  animateTeachersCarousel();
+}
+</script>
 </body>
 </html>
