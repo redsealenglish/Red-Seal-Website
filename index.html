@@ -1578,36 +1578,14 @@ display: block;
 .teacher-card .teacher-photo {
   margin-bottom: 18px;
 }
-.teachers-carousel::before,
-.teachers-carousel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
 
-.teachers-carousel::before {
-  left: 0;
-  background: linear-gradient(90deg, #f8f1e8, transparent);
-}
-
-.teachers-carousel::after {
-  right: 0;
-  background: linear-gradient(270deg, #f8f1e8, transparent);
-}
 
 @media (max-width: 768px) {
   .teacher-card {
     flex-basis: 86vw;
   }
 
-  .teachers-carousel::before,
-  .teachers-carousel::after {
-    width: 36px;
-  }
+
 }
 
 .gallery-grid {
@@ -3186,14 +3164,28 @@ setInterval(keepOriginalTitle, 500);
 const teachersCarousel = document.getElementById('teachersCarousel');
 
 if (teachersCarousel) {
-  let targetScroll = teachersCarousel.scrollLeft;
-  let currentScroll = teachersCarousel.scrollLeft;
+  const track = teachersCarousel.querySelector('.teachers-track');
+
+  track.innerHTML += track.innerHTML;
+
+  let speed = 0.6;
+  let targetSpeed = 0.6;
   let isTouching = false;
+  let startX = 0;
+  let startScroll = 0;
 
   function animateTeachersCarousel() {
     if (!isTouching) {
-      currentScroll += (targetScroll - currentScroll) * 0.08;
-      teachersCarousel.scrollLeft = currentScroll;
+      speed += (targetSpeed - speed) * 0.04;
+      teachersCarousel.scrollLeft += speed;
+
+      if (teachersCarousel.scrollLeft >= track.scrollWidth / 2) {
+        teachersCarousel.scrollLeft = 0;
+      }
+
+      if (teachersCarousel.scrollLeft <= 0 && speed < 0) {
+        teachersCarousel.scrollLeft = track.scrollWidth / 2;
+      }
     }
 
     requestAnimationFrame(animateTeachersCarousel);
@@ -3204,26 +3196,43 @@ if (teachersCarousel) {
 
     const rect = teachersCarousel.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
-    const percentage = mouseX / rect.width;
-    const maxScroll = teachersCarousel.scrollWidth - teachersCarousel.clientWidth;
+    const center = rect.width / 2;
+    const distance = (mouseX - center) / center;
 
-    targetScroll = maxScroll * percentage;
+    targetSpeed = distance * 2.4;
   });
 
   teachersCarousel.addEventListener('mouseleave', function () {
     if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    targetScroll = 0;
+    targetSpeed = 0.6;
   });
 
-  teachersCarousel.addEventListener('touchstart', function () {
+  teachersCarousel.addEventListener('touchstart', function (e) {
     isTouching = true;
+    startX = e.touches[0].clientX;
+    startScroll = teachersCarousel.scrollLeft;
+  }, { passive: true });
+
+  teachersCarousel.addEventListener('touchmove', function (e) {
+    const x = e.touches[0].clientX;
+    teachersCarousel.scrollLeft = startScroll + (startX - x);
+
+    if (teachersCarousel.scrollLeft >= track.scrollWidth / 2) {
+      teachersCarousel.scrollLeft = 0;
+      startScroll = 0;
+      startX = x;
+    }
+
+    if (teachersCarousel.scrollLeft <= 0) {
+      teachersCarousel.scrollLeft = track.scrollWidth / 2;
+      startScroll = teachersCarousel.scrollLeft;
+      startX = x;
+    }
   }, { passive: true });
 
   teachersCarousel.addEventListener('touchend', function () {
     isTouching = false;
-    currentScroll = teachersCarousel.scrollLeft;
-    targetScroll = teachersCarousel.scrollLeft;
+    targetSpeed = 0.6;
   }, { passive: true });
 
   animateTeachersCarousel();
